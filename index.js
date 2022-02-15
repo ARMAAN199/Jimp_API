@@ -1,1 +1,2 @@
-import Jimp from "jimp";
+var Jimp = require("jimp");
+console.log("Hello");
