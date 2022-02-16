@@ -30,11 +30,11 @@ let svg = body
   .attr("height", 100)
   .attr("xmlns", "http://www.w3.org/2000/svg");
 svg
-  .append("rect")
+  .append("circle")
   .attr("x", 10)
   .attr("y", 10)
-  .attr("width", 80)
-  .attr("height", 80)
-  .style("fill", "orange");
+  .attr("width", 90)
+  .attr("height", 90)
+  .style("fill", "red");
 
 fs.writeFileSync("out.svg", body.html());
