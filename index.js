@@ -16,12 +16,21 @@
 //   });
 
 var jsdom = require("jsdom");
+const express = require("express");
+app = express();
 const { JSDOM } = jsdom;
 // const addFont = require("add-font");
 
 var d3 = require("d3");
 const fs = require("fs");
 const { url } = require("inspector");
+const { append } = require("express/lib/response");
+
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+
+function sendsvg(input) {}
 
 var contri = 3;
 var category = "gt1000";
@@ -104,5 +113,8 @@ if (category == "gt1000") {
 //   .attr("fill", "none")
 //   .attr("cx", "57")
 //   .attr("cy", "57");
-
 fs.writeFileSync("out.svg", body.html());
+
+app.listen(3000, () => {
+  console.log("Server started on port 3000");
+});
