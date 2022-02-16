@@ -21,15 +21,18 @@ const { JSDOM } = jsdom;
 
 var d3 = require("d3");
 const fs = require("fs");
+const { url } = require("inspector");
 
-var contri = 2439;
+var contri = 3;
 var category = "gt1000";
 if (contri < 10) category = "lt10";
 else if (contri < 100) category = "lt100";
 else if (contri < 1000) category = "lt1000";
 
+var font = "monospace";
+
 const dom = new JSDOM(
-  `<!DOCTYPE html> <head> <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> </head> <body> </body>`
+  `<!DOCTYPE html> <head> <link href="./fonts/pacifico/Pacifico.ttf" rel="stylesheet"> </head> <body> </body>`
 );
 
 let body = d3.select(dom.window.document.querySelector("body"));
@@ -49,7 +52,7 @@ if (category == "lt10") {
     .attr("y", 60)
     .attr("font-size", "32px")
     .text(`${contri}`)
-    .style("font-family", "helvetica")
+    .style("font-family", `${font}`)
     .style("text-anchor", "middle");
 }
 if (category == "lt100") {
@@ -60,7 +63,7 @@ if (category == "lt100") {
     .attr("y", 60)
     .attr("font-size", "32px")
     .text(`${contri}`)
-    .style("font-family", "helvetica")
+    .style("font-family", `${font}`)
     .style("text-anchor", "middle");
 }
 if (category == "lt1000") {
@@ -71,7 +74,7 @@ if (category == "lt1000") {
     .attr("y", 60)
     .attr("font-size", "26px")
     .text(`${contri}`)
-    .style("font-family", "helvetica")
+    .style("font-family", `${font}`)
     .style("text-anchor", "middle");
 }
 if (category == "gt1000") {
@@ -82,7 +85,7 @@ if (category == "gt1000") {
     .attr("y", 60)
     .attr("font-size", "20px")
     .text(`${contri}`)
-    .style("font-family", "helvetica")
+    .style("font-family", `${font}`)
     .style("text-anchor", "middle");
 }
 
