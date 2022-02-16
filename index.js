@@ -33,21 +33,8 @@ let svg = body
   .attr("width", 114)
   .attr("height", 121)
   .attr("xmlns", "http://www.w3.org/2000/svg");
-let rect = svg
-  .append("rect")
-  .attr("width", 114)
-  .attr("height", 121)
-  .style("fill", "#132027")
-  .attr("rx", 7);
-let ellipse = svg
-  .append("ellipse")
-  .attr("rx", 37)
-  .attr("ry", 37)
-  .attr("stroke", "#a12568")
-  .attr("stroke-width", "3")
-  .attr("fill", "none")
-  .attr("cx", "57")
-  .attr("cy", "57");
+
+let image = svg.append("image").attr("xlink:href", "./sample.svg");
 let text = svg
   .append("text")
   .attr("x", "15")
@@ -56,5 +43,20 @@ let text = svg
   .attr("font-size", "11")
   .text("Total Contributions")
   .style("font-family", "pacifico");
+// let rect = svg
+//   .append("rect")
+//   .attr("width", 114)
+//   .attr("height", 121)
+//   .style("fill", "#132027")
+//   .attr("rx", 7);
+// let ellipse = svg
+//   .append("ellipse")
+//   .attr("rx", 37)
+//   .attr("ry", 37)
+//   .attr("stroke", "#a12568")
+//   .attr("stroke-width", "3")
+//   .attr("fill", "none")
+//   .attr("cx", "57")
+//   .attr("cy", "57");
 
 fs.writeFileSync("out.svg", body.html());
