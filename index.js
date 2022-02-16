@@ -22,7 +22,7 @@ const { JSDOM } = jsdom;
 var d3 = require("d3");
 const fs = require("fs");
 
-var contri = 4;
+var contri = 2439;
 var category = "gt1000";
 if (contri < 10) category = "lt10";
 else if (contri < 100) category = "lt100";
@@ -41,15 +41,50 @@ let svg = body
   .attr("xmlns", "http://www.w3.org/2000/svg");
 
 let image = svg.append("image").attr("xlink:href", "./sample.svg");
-let text = svg
-  .append("text")
-  .attr("fill", "#e3b365")
-  .attr("x", 50)
-  .attr("y", 60)
-  .attr("font-size", "17")
-  .text(`${contri}`)
-  .style("font-family", "helvetica")
-  .style("text-anchor", "middle");
+if (category == "lt10") {
+  let text = svg
+    .append("text")
+    .attr("fill", "#e3b365")
+    .attr("x", 55)
+    .attr("y", 60)
+    .attr("font-size", "32px")
+    .text(`${contri}`)
+    .style("font-family", "helvetica")
+    .style("text-anchor", "middle");
+}
+if (category == "lt100") {
+  let text = svg
+    .append("text")
+    .attr("fill", "#e3b365")
+    .attr("x", 55)
+    .attr("y", 60)
+    .attr("font-size", "32px")
+    .text(`${contri}`)
+    .style("font-family", "helvetica")
+    .style("text-anchor", "middle");
+}
+if (category == "lt1000") {
+  let text = svg
+    .append("text")
+    .attr("fill", "#e3b365")
+    .attr("x", 57)
+    .attr("y", 60)
+    .attr("font-size", "26px")
+    .text(`${contri}`)
+    .style("font-family", "helvetica")
+    .style("text-anchor", "middle");
+}
+if (category == "gt1000") {
+  let text = svg
+    .append("text")
+    .attr("fill", "#e3b365")
+    .attr("x", 59)
+    .attr("y", 60)
+    .attr("font-size", "20px")
+    .text(`${contri}`)
+    .style("font-family", "helvetica")
+    .style("text-anchor", "middle");
+}
 
 // let rect = svg
 //   .append("rect")
