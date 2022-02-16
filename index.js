@@ -17,13 +17,17 @@
 
 var jsdom = require("jsdom");
 const { JSDOM } = jsdom;
+// const addFont = require("add-font");
 
 var d3 = require("d3");
 const fs = require("fs");
 
-const dom = new JSDOM(`<!DOCTYPE html><body></body>`);
+const dom = new JSDOM(
+  `<!DOCTYPE html> <head> <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> </head> <body> </body>`
+);
 
 let body = d3.select(dom.window.document.querySelector("body"));
+
 let svg = body
   .append("svg")
   .attr("width", 114)
@@ -44,5 +48,13 @@ let ellipse = svg
   .attr("fill", "none")
   .attr("cx", "57")
   .attr("cy", "57");
-let text = svg.append("<text x='20' y='35'>My</text>");
+let text = svg
+  .append("text")
+  .attr("x", "15")
+  .attr("y", "110")
+  .attr("fill", "#e3b365")
+  .attr("font-size", "11")
+  .text("Total Contributions")
+  .style("font-family", "pacifico");
+
 fs.writeFileSync("out.svg", body.html());
