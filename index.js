@@ -22,6 +22,12 @@ const { JSDOM } = jsdom;
 var d3 = require("d3");
 const fs = require("fs");
 
+var contri = 4;
+var category = "gt1000";
+if (contri < 10) category = "lt10";
+else if (contri < 100) category = "lt100";
+else if (contri < 1000) category = "lt1000";
+
 const dom = new JSDOM(
   `<!DOCTYPE html> <head> <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> </head> <body> </body>`
 );
@@ -37,12 +43,14 @@ let svg = body
 let image = svg.append("image").attr("xlink:href", "./sample.svg");
 let text = svg
   .append("text")
-  .attr("x", "15")
-  .attr("y", "110")
   .attr("fill", "#e3b365")
-  .attr("font-size", "11")
-  .text("Total Contributions")
-  .style("font-family", "pacifico");
+  .attr("x", 50)
+  .attr("y", 60)
+  .attr("font-size", "17")
+  .text(`${contri}`)
+  .style("font-family", "helvetica")
+  .style("text-anchor", "middle");
+
 // let rect = svg
 //   .append("rect")
 //   .attr("width", 114)
