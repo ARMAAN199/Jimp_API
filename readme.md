@@ -1,1 +1,1 @@
-![alt text](./out.png)
+![alt text](out.svg)
