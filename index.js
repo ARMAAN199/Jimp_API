@@ -1,4 +1,5 @@
 var Jimp = require("jimp");
+var uuid = require("uuid");
 console.log("Hello");
 
 // Jimp.read('lenna.png', (err, lenna) => {
@@ -12,19 +13,11 @@ console.log("Hello");
 
 Jimp.read("./imgs.png")
   .then((image) => {
+    var imgname = uuid.v4();
     Jimp.loadFont(Jimp.FONT_SANS_32_BLACK).then((font) => {
       image
-        .print(
-          font,
-          10,
-          10,
-          "Hello world that wraps!",
-          50,
-          (err, image, { x, y }) => {
-            image.print(font, x, y + 20, "More text on another line", 50);
-          }
-        )
-        .write("output.jpg");
+        .print(font, 10, 10, "Hello world that wraps!")
+        .write(`${imgname}.png`);
     });
   })
   .catch((err) => {
