@@ -26,15 +26,13 @@ const dom = new JSDOM(`<!DOCTYPE html><body></body>`);
 let body = d3.select(dom.window.document.querySelector("body"));
 let svg = body
   .append("svg")
-  .attr("width", 100)
-  .attr("height", 100)
+  .attr("width", 114)
+  .attr("height", 121)
   .attr("xmlns", "http://www.w3.org/2000/svg");
 svg
-  .append("circle")
-  .attr("x", 10)
-  .attr("y", 10)
-  .attr("width", 90)
-  .attr("height", 90)
-  .style("fill", "red");
+  .append("rect")
+  .attr("width", 114)
+  .attr("height", 121)
+  .style("fill", "#132027");
 
 fs.writeFileSync("out.svg", body.html());
