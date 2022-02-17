@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon github.js"
   },
   "author": "ArmaanJain",
   "license": "ISC",
@@ -17,6 +17,7 @@
     "jsdom": "^19.0.0",
     "nodemon": "^2.0.15",
     "npm": "^8.5.0",
+    "octokit": "^1.7.1",
     "uuid": "^8.3.2"
   }
 }
